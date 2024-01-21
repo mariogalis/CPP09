@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 19:01:12 by mario             #+#    #+#             */
-/*   Updated: 2023/12/09 14:32:29 by mario            ###   ########.fr       */
+/*   Updated: 2024/01/21 18:20:45 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ void BitcoinExchange::readFile(std::string file)
 
 		if (checkData(year, month, day, bitcoinsf, line) == 0)
 			calculate(fulldate, bitcoinsf);
-		//std::cout << GREEN << "TA BIEN" << std::endl << RESET;
 	}
 	infile.close();
 	exit(0);

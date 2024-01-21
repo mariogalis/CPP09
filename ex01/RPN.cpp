@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:38:57 by mario             #+#    #+#             */
-/*   Updated: 2024/01/01 19:24:56 by mario            ###   ########.fr       */
+/*   Updated: 2024/01/21 18:50:15 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ const char* rpn::BigNumberException::what(void) const throw(){ 		return ("Error 
 const char* rpn::TwoNumsException::what(void) const throw(){ 		return ("Error : OPERATION MUST START WITH TWO NUMBERS FIRST");}
 const char* rpn::BadOperatorsException::what(void) const throw(){	return ("Error : BAD NUMBER OF OPERATORS OR NUMBERS");}
 
-
-
 // Functions
 
 void	rpn::checkinput(const std::string &expression)
@@ -81,7 +79,8 @@ void	rpn::checkinput(const std::string &expression)
 		int res = stck.top();
 		stck.pop();
 
-		switch (op) {
+		switch (op) 
+		{
 			case '+':
 				res = stck.top() + res;
 				break;
@@ -110,20 +109,21 @@ void	rpn::checkinput(const std::string &expression)
 		std::string operators = "+-*/";
 		size_t num = 0;
 
-		for (size_t i = 0; i < input.length(); ++i) {
-			if (isdigit(input[i])) {
+		for (size_t i = 0; i < input.length(); ++i) 
+		{
+			if (isdigit(input[i]))
+			{
 				num++;
 				stck.push(input[i] - '0');
-			} else if (operators.find(input[i]) != std::string::npos) {
-				applyOperator(input[i], stck);
-			} else if (!isspace(input[i])) {
-				throw (BadArgumentException());
 			}
+			else if (operators.find(input[i]) != std::string::npos) 
+				applyOperator(input[i], stck);
+			else if (!isspace(input[i])) 
+				throw (BadArgumentException());
 		}
 
-		if (num == 0 || num == stck.size() - 1) {
+		if (num == 0 || num == stck.size() - 1) 
 			throw std::invalid_argument("Invalid Input");
-		}
-
+			
 		std::cout << stck.top() << std::endl;
 	}

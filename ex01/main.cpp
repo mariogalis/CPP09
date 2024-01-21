@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mario <mario@student.42.fr>                +#+  +:+       +#+        */
+/*   By: magonzal <magonzal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:38:54 by mario             #+#    #+#             */
-/*   Updated: 2024/01/01 19:24:38 by mario            ###   ########.fr       */
+/*   Updated: 2024/01/21 18:38:02 by magonzal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// Usamos stack para apilar 
 
 #include "RPN.hpp"
 
@@ -19,7 +21,7 @@ int main(int argc, char *argv[])
 		std::cout << RED << "ERROR : BAD NUMBER OF ARGUMENTS\n" << RESET; 
 		return (-1);
 	}
-		
+	
 	try
 	{
 	   rpn::checkinput(argv[1]);
